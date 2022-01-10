@@ -51,7 +51,7 @@ function tickGame(seconds)
     }
     document.title = "ωEngine" + (game.settings.titleStyle !== 0 ? ":" : "") + " " + titleInfo;
 
-    if(saveTimer > 600)
+    if(saveTimer > 30000)
     {
         functions.saveGame();
         saveTimer = 0;
@@ -168,7 +168,7 @@ function simulateGameTime(seconds)
 function update()
 {
     dtNew = Date.now();
-    const dt = Math.max(0, (dtNew - dtOld) / 50);
+    const dt = Math.max(0, (dtNew - dtOld) / 1);
     dtOld = Date.now();
 
     tickGame(dt);
